@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coordinadora Nomad Genetics</title>
+  <style>
+    :root{
+      --bg:#f4f8ff; --panel:#ffffff; --primary:#0a4f9e; --primary-2:#12a8df;
+      --dark:#081f3d; --muted:#60708a; --line:rgba(10,79,158,.15);
+      --shadow:0 24px 70px rgba(9,45,92,.15); --radius:28px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:Inter,Segoe UI,Roboto,Arial,sans-serif; color:var(--dark); background:
+      radial-gradient(circle at 12% 8%,rgba(18,168,223,.20),transparent 32%),
+      radial-gradient(circle at 88% 18%,rgba(10,79,158,.18),transparent 28%),
+      linear-gradient(180deg,#fff 0%,var(--bg) 52%,#eef6ff 100%); min-height:100vh;}
+    a{text-decoration:none;color:inherit}.shell{width:min(100% - 36px,1220px);margin:0 auto;padding:28px 0 42px}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 20px;background:rgba(255,255,255,.74);border:1px solid var(--line);border-radius:24px;box-shadow:0 12px 40px rgba(23,72,132,.08);backdrop-filter:blur(14px);position:sticky;top:16px;z-index:20}
+    .brand{display:flex;align-items:center;gap:14px}.mark{width:58px;height:58px;display:grid;place-items:center;border-radius:16px;background:linear-gradient(180deg,#fff,#edf5ff);border:1px solid var(--line);box-shadow:0 10px 24px rgba(23,72,132,.08);font-weight:1000;color:var(--primary)}
+    .eyebrow{color:var(--primary);letter-spacing:.14em;text-transform:uppercase;font-weight:900;font-size:12px}.brand-copy strong{font-size:18px}.nav-actions{display:flex;gap:10px;flex-wrap:wrap}.btn,.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;font-weight:900;transition:.25s ease;border:1px solid transparent}.btn{padding:12px 18px}.btn.primary{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:white;box-shadow:0 14px 28px rgba(10,79,158,.24)}.btn.secondary{background:#fff;color:var(--primary);border-color:var(--line)}.btn:hover,.pill:hover{transform:translateY(-2px)}
+    .hero{display:grid;grid-template-columns:1.02fr .98fr;gap:22px;margin-top:24px}.panel{background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}.copy{padding:34px;min-height:660px;display:flex;flex-direction:column;justify-content:center}.headline{font-size:clamp(38px,5vw,66px);line-height:.96;margin:12px 0 18px;letter-spacing:-.055em}.headline span{display:block;color:var(--primary)}.lead{font-size:18px;line-height:1.68;color:var(--muted);max-width:760px}.bio-box{margin:22px 0;padding:22px;border-radius:22px;background:linear-gradient(135deg,rgba(10,79,158,.08),rgba(18,168,223,.08));border:1px solid var(--line)}.bio-box strong{font-size:18px}.bio-box p{margin:8px 0 0;color:#364760;line-height:1.7}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px}.fact{padding:16px;border-radius:18px;border:1px solid var(--line);background:#fff}.fact small{display:block;color:var(--muted);font-weight:800;margin-bottom:8px}.fact strong{font-size:14px;line-height:1.4}
+    .profile-card{min-height:660px;display:flex;flex-direction:column}.media-wrap{padding:18px 18px 0}.video-box{position:relative;overflow:hidden;border-radius:24px;background:linear-gradient(135deg,#0b315f,#0a4f9e);min-height:460px;border:1px solid rgba(255,255,255,.6)}.video-box video{width:100%;height:100%;min-height:460px;object-fit:cover;display:block}.video-placeholder{position:absolute;inset:0;display:none;place-items:center;text-align:center;color:white;padding:32px;background:radial-gradient(circle at 50% 25%,rgba(18,168,223,.45),transparent 30%),linear-gradient(135deg,#072247,#0a4f9e);pointer-events:none}.video-placeholder h3{font-size:28px;margin:0 0 8px}.video-placeholder p{margin:0;color:rgba(255,255,255,.8);line-height:1.5}.badge{position:absolute;top:16px;left:16px;z-index:2;background:rgba(255,255,255,.9);color:var(--primary);padding:10px 14px;border-radius:999px;font-weight:1000;font-size:12px;box-shadow:0 10px 28px rgba(0,0,0,.13)}.card-body{padding:24px 28px 30px}.card-body h2{font-size:36px;line-height:1;margin:0 0 8px}.role{font-size:17px;color:var(--muted);font-weight:800;margin-bottom:16px}.contact-row{display:flex;gap:10px;flex-wrap:wrap}.pill{padding:12px 15px;background:#f5faff;color:var(--primary);border-color:var(--line)}.pill.whatsapp{background:#eafff1;color:#0a7a36;border-color:rgba(10,122,54,.14)}
+    .kam-selector{margin-top:22px;position:relative;z-index:12}.selector-head{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 22px;border-radius:24px;background:rgba(255,255,255,.9);border:1px solid var(--line);box-shadow:0 14px 36px rgba(9,45,92,.08)}.selector-copy strong{display:block;font-size:18px}.selector-copy span{display:block;color:var(--muted);font-weight:800;margin-top:4px;font-size:13px}.selector-toggle{border:0;cursor:pointer;padding:13px 18px;border-radius:999px;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;font-weight:1000;box-shadow:0 14px 28px rgba(10,79,158,.22)}.selector-menu{display:none;position:absolute;left:0;right:0;top:calc(100% + 10px);padding:12px;border-radius:24px;background:#fff;border:1px solid var(--line);box-shadow:0 24px 70px rgba(9,45,92,.18)}.selector-menu.open{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.kam-option{cursor:pointer;text-align:left;padding:16px;border-radius:20px;background:#fff;border:1px solid var(--line);transition:.25s ease}.kam-option:hover,.kam-option.active{transform:translateY(-2px);border-color:rgba(10,79,158,.42);background:#f7fbff}.avatar{width:50px;height:50px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:white;font-weight:1000;margin-bottom:12px}.kam-option strong{display:block;font-size:16px;line-height:1.2}.kam-option span{display:block;color:var(--muted);font-weight:800;margin-top:8px;font-size:13px}
+    .section{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}.mini-card{padding:24px}.mini-card h3{margin:0 0 10px;font-size:22px}.mini-card p{color:var(--muted);line-height:1.65}.link-stack{display:grid;gap:12px}.resource{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px;border:1px solid var(--line);border-radius:18px;background:#fff}.resource span{display:block;color:var(--muted);font-size:14px;margin-top:4px}.resource-mark{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:white;font-weight:1000}.footer-note{text-align:center;color:var(--muted);font-size:14px;margin-top:22px}
+    @media (max-width:980px){.hero,.section{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}.copy,.profile-card{min-height:auto}.selector-menu.open{grid-template-columns:1fr 1fr}}
+    @media (max-width:640px){.shell{width:min(100% - 20px,1180px)}.topbar,.selector-head{align-items:flex-start;flex-direction:column}.nav-actions,.selector-toggle{width:100%}.nav-actions .btn{flex:1}.copy{padding:24px}.facts,.selector-menu.open{grid-template-columns:1fr}.card-body h2{font-size:30px}.video-box,.video-box video{min-height:360px}.selector-menu{position:static;margin-top:10px}.headline{letter-spacing:-.04em}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <div class="brand"><div class="mark">NG</div><div class="brand-copy"><div class="eyebrow">Perfiles profesionales</div><strong>Nomad Genetics</strong></div></div>
+      <div class="nav-actions"><a class="btn secondary" href="https://nomadgenetics.com/" target="_blank" rel="noopener noreferrer">Sitio oficial</a><a class="btn primary" href="https://soporteti-desing.github.io/catalogo-Nomad/" target="_blank" rel="noopener noreferrer">Ver catálogo</a></div>
+    </div>
+    <div class="kam-selector">
+      <div class="selector-head">
+        <div class="selector-copy"><strong id="selectedLabel">Imelda Ruiz Zaragoza</strong><span>Perfil seleccionado. Despliega para cambiar de KAM.</span></div>
+        <button class="selector-toggle" id="toggleDirectory" type="button">Seleccionar KAM ▾</button>
+      </div>
+      <div class="selector-menu" id="directory" aria-hidden="true"></div>
+    </div>
+    <section class="hero">
+      <article class="panel copy">
+        <div class="eyebrow" id="roleText">Coordinadora Nomad Genetics</div>
+        <h1 class="headline"><span id="nameTitle">Imelda Ruiz</span><span>acompañamiento comercial con enfoque clínico</span></h1>
+        <p class="lead" id="leadText">Una presencia cercana, profesional y orientada a resultados para fortalecer la relación con médicos, hospitales, centros de infusión y aliados estratégicos que buscan soluciones confiables en diagnóstico genómico.</p>
+        <div class="bio-box"><strong>Breve reseña</strong><p id="bioText"></p></div>
+        <div class="facts"><div class="fact"><small>Especialidad</small><strong>Pruebas genómicas y vinculación con cuentas estratégicas.</strong></div><div class="fact"><small>Enfoque</small><strong>Seguimiento cercano con visión comercial y sensibilidad clínica.</strong></div><div class="fact"><small>Atención</small><strong>Apoyo a médicos, centros de infusión y procesos de coordinación.</strong></div></div>
+      </article>
+      <aside class="panel profile-card">
+        <div class="media-wrap"><div class="video-box"><div class="badge">Nomad Genetics</div><video id="profileVideo" autoplay muted loop playsinline controls preload="metadata"></video><div class="video-placeholder" id="videoFallback"><div><h3 id="fallbackName">KAM Nomad</h3><p>Video de presentación cargado en el perfil.</p></div></div></div></div>
+        <div class="card-body"><h2 id="cardName">Imelda Ruiz</h2><div class="role">Coordinadora Nomad Genetics</div><div class="contact-row"><a class="pill" id="phoneLink" href="#">📞 Teléfono</a><a class="pill whatsapp" id="waLink" href="#" target="_blank" rel="noopener noreferrer">WhatsApp directo</a></div></div>
+      </aside>
+    </section>
+  </main>
+<script>
+const kams=[
+{name:'Imelda Ruiz',phone:'5586774163',video:'assets/imel.mp4',bio:'Imelda Ruiz destaca por su trato profesional, seguimiento ordenado y capacidad para acompañar a médicos y equipos clínicos en la identificación de soluciones genómicas. Su enfoque combina claridad comercial, atención cercana y una comunicación precisa para facilitar decisiones informadas.'},
+{name:'Anayely Tapia Marcelino',phone:'5579681304',video:'assets/anayely-tapia-marcelino.mp4',bio:'Anayely Tapia Marcelino ofrece una atención cálida, ágil y orientada al detalle. Su labor se enfoca en guiar a especialistas y aliados durante el proceso de información, coordinación y seguimiento, manteniendo una experiencia confiable y profesional en cada contacto.'},
+{name:'Oscar Rangel Vargas',phone:'5579681460',video:'assets/oscar-rangel-vargas.mp4',bio:'Oscar Rangel Vargas aporta una visión estructurada y resolutiva para la atención de cuentas estratégicas. Su perfil está orientado a construir relaciones sólidas, dar seguimiento oportuno y apoyar la comunicación de pruebas oncológicas con enfoque claro y ejecutivo.'},
+{name:'Cristhian Dayana Valencia Cruz',phone:'5669988684',video:'assets/cristhian-dayana-valencia-cruz.mp4',bio:'Cristhian Dayana Valencia Cruz se distingue por una atención empática, profesional y constante. Acompaña a médicos, hospitales y centros de atención con información clara, coordinación efectiva y una comunicación enfocada en generar confianza durante todo el proceso.'}
+];
+const fmt=p=>p.replace(/(\d{2})(\d{4})(\d{4})/,'$1 $2 $3');
+const directory=document.getElementById('directory');
+const toggle=document.getElementById('toggleDirectory');
+kams.forEach((k,i)=>{const b=document.createElement('button');b.type='button';b.className='kam-option';b.innerHTML=`<div class="avatar">${k.name.split(' ').map(x=>x[0]).slice(0,2).join('')}</div><strong>${k.name}</strong><span>📞 ${fmt(k.phone)}</span>`;b.onclick=()=>{selectKam(i);closeDirectory();};directory.appendChild(b);});
+function openDirectory(){directory.classList.add('open');directory.setAttribute('aria-hidden','false');toggle.textContent='Ocultar KAMs ▴';}
+function closeDirectory(){directory.classList.remove('open');directory.setAttribute('aria-hidden','true');toggle.textContent='Seleccionar KAM ▾';}
+toggle.addEventListener('click',()=> directory.classList.contains('open') ? closeDirectory() : openDirectory());
+document.addEventListener('click',(e)=>{if(!e.target.closest('.kam-selector')) closeDirectory();});
+function selectKam(i){const k=kams[i];document.querySelectorAll('.kam-option').forEach((el,idx)=>el.classList.toggle('active',idx===i));document.getElementById('selectedLabel').textContent=k.name;document.getElementById('nameTitle').textContent=k.name;document.getElementById('cardName').textContent=k.name;document.getElementById('fallbackName').textContent=k.name;document.getElementById('bioText').textContent=k.bio;document.getElementById('phoneLink').textContent='📞 '+fmt(k.phone);document.getElementById('phoneLink').href='tel:+52'+k.phone;document.getElementById('waLink').href='https://wa.me/52'+k.phone;const video=document.getElementById('profileVideo');const fallback=document.getElementById('videoFallback');fallback.style.display='none';video.pause();video.removeAttribute('src');video.src=k.video;video.load();video.onloadeddata=()=>{fallback.style.display='none';video.play().catch(()=>{});};video.oncanplay=()=>{fallback.style.display='none';video.play().catch(()=>{});};video.onerror=()=>{fallback.style.display='grid';};}
+
+// Leer el parámetro 'kam' de la URL
+const urlParams = new URLSearchParams(window.location.search);
+const kamParam = urlParams.get('kam');
+let initialKamIndex = 0;
+
+if (kamParam) {
+  // Buscar un KAM cuyo nombre contenga el parámetro (ej: ?kam=alain o ?kam=dayana)
+  const index = kams.findIndex(k => k.name.toLowerCase().includes(kamParam.toLowerCase()));
+  if (index !== -1) initialKamIndex = index;
+}
+
+selectKam(initialKamIndex);
+</script>
+</body>
+</html>
